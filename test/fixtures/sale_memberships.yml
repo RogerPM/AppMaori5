@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale_id: 
+  client_id: 
+  membership_id: 
+  precio: 9.99
+  quantity: 1
+  subtotal: 9.99
+
+two:
+  sale_id: 
+  client_id: 
+  membership_id: 
+  precio: 9.99
+  quantity: 1
+  subtotal: 9.99

@@ -1,0 +1,2 @@
+module SaleMembershipsHelper
+end

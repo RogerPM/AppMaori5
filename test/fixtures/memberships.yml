@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: memberships
+#
+#  id         :integer          not null, primary key
+#  rate_name  :string
+#  sessions   :integer
+#  service_id :integer
+#  value      :decimal(, )
+#  discount   :decimal(, )
+#  total      :decimal(, )
+#  state      :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rate_name: MyString
+  sessions: 1
+  service_id: 
+  value: 9.99
+  discount: 9.99
+  total: 9.99
+  state: false
+
+two:
+  rate_name: MyString
+  sessions: 1
+  service_id: 
+  value: 9.99
+  discount: 9.99
+  total: 9.99
+  state: false

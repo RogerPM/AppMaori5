@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: sale_details
+#
+#  id         :integer          not null, primary key
+#  sale_id    :integer
+#  product_id :integer
+#  precio     :decimal(, )
+#  quantity   :integer
+#  subtotal   :decimal(, )
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale_id: 
+  product_id: 
+  precio: 9.99
+  quantity: 1
+  subtotal: 9.99
+
+two:
+  sale_id: 
+  product_id: 
+  precio: 9.99
+  quantity: 1
+  subtotal: 9.99

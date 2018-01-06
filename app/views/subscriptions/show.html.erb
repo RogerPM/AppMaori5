@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @subscription.client %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @subscription.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @subscription.end_time %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @subscription.service %>
+</p>
+
+<p>
+  <strong>Membership:</strong>
+  <%= @subscription.membership %>
+</p>
+
+<p>
+  <strong>Total entries:</strong>
+  <%= @subscription.total_entries %>
+</p>
+
+<p>
+  <strong>Current entries:</strong>
+  <%= @subscription.current_entries %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @subscription.type %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @subscription.state %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

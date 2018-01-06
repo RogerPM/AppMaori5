@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: subscriptions
+#
+#  id              :integer          not null, primary key
+#  client_id       :integer
+#  start_time      :date
+#  end_time        :date
+#  service_id      :integer
+#  membership_id   :integer
+#  total_entries   :integer
+#  current_entries :integer
+#  type            :string
+#  state           :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_id: 
+  start_time: 2017-12-19
+  end_time: 2017-12-19
+  service_id: 
+  membership_id: 
+  total_entries: 1
+  current_entries: 1
+  type: 
+  state: MyString
+
+two:
+  client_id: 
+  start_time: 2017-12-19
+  end_time: 2017-12-19
+  service_id: 
+  membership_id: 
+  total_entries: 1
+  current_entries: 1
+  type: 
+  state: MyString

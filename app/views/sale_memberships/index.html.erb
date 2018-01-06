@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sale Memberships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sale</th>
+      <th>Client</th>
+      <th>Membership</th>
+      <th>Precio</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale_memberships.each do |sale_membership| %>
+      <tr>
+        <td><%= sale_membership.sale %></td>
+        <td><%= sale_membership.client %></td>
+        <td><%= sale_membership.membership %></td>
+        <td><%= sale_membership.precio %></td>
+        <td><%= sale_membership.quantity %></td>
+        <td><%= sale_membership.subtotal %></td>
+        <td><%= link_to 'Show', sale_membership %></td>
+        <td><%= link_to 'Edit', edit_sale_membership_path(sale_membership) %></td>
+        <td><%= link_to 'Destroy', sale_membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale membership', new_sale_membership_path %>

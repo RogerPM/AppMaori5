@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id               :integer          not null, primary key
+#  name             :string
+#  purchase_price   :decimal(, )
+#  sale_price       :decimal(, )
+#  quantity         :integer
+#  minimun_quantity :integer
+#  gain             :decimal(, )
+#  provider_id      :integer
+#  type             :string
+#  state            :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 1
+  purchase_price: 9.99
+  sale_price: 9.99
+  quantity: 1
+  minimun_quantity: 1
+  gain: 9.99
+  provider_id: 
+  type: 
+  state: false
+
+two:
+  name: 1
+  purchase_price: 9.99
+  sale_price: 9.99
+  quantity: 1
+  minimun_quantity: 1
+  gain: 9.99
+  provider_id: 
+  type: 
+  state: false

@@ -1,0 +1,41 @@
+<%= form_for(@sale_membership) do |f| %>
+  <% if @sale_membership.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale_membership.errors.count, "error") %> prohibited this sale_membership from being saved:</h2>
+
+      <ul>
+      <% @sale_membership.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sale_id %><br>
+    <%= f.text_field :sale_id %>
+  </div>
+  <div class="field">
+    <%= f.label :client_id %><br>
+    <%= f.text_field :client_id %>
+  </div>
+  <div class="field">
+    <%= f.label :membership_id %><br>
+    <%= f.text_field :membership_id %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.text_field :precio %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :subtotal %><br>
+    <%= f.text_field :subtotal %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

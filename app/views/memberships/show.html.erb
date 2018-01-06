@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rate name:</strong>
+  <%= @membership.rate_name %>
+</p>
+
+<p>
+  <strong>Sessions:</strong>
+  <%= @membership.sessions %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @membership.service %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @membership.value %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @membership.discount %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @membership.total %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @membership.state %>
+</p>
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

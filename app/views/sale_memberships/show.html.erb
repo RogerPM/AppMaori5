@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sale:</strong>
+  <%= @sale_membership.sale %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @sale_membership.client %>
+</p>
+
+<p>
+  <strong>Membership:</strong>
+  <%= @sale_membership.membership %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @sale_membership.precio %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @sale_membership.quantity %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @sale_membership.subtotal %>
+</p>
+
+<%= link_to 'Edit', edit_sale_membership_path(@sale_membership) %> |
+<%= link_to 'Back', sale_memberships_path %>
