@@ -18,6 +18,36 @@ menu parent: "Personas", label: 'Proveedores'
     actions
   end
 
+    show  do
+    attributes_table  do
+
+      row "Nombres",:name,:sortable => :name do |provider|
+        div :class => "name" do
+            provider.name
+        end
+      end 
+      row "Ruc",:ruc,:sortable => :ruc do |provider|
+        div :class => "ruc" do
+            provider.ruc
+        end
+      end
+      row "Telefono",:phone,:sortable => :phone do |provider|
+        div :class => "phone" do
+            provider.phone
+        end
+      end
+      row :email
+      row "Direccion",:address,:sortable => :address do |provider|
+        div :class => "address" do
+            provider.address
+        end
+      end
+      row :state
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
 
 	form do |f|
 		f.inputs "Proveedor" do

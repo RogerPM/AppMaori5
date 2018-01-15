@@ -23,6 +23,12 @@ class Product < ActiveRecord::Base
   validates :quantity , presence: true
   validates :minimun_quantity , presence: true
 
+  after_save :cantidad_ganada
 
+  def cantidad_ganada
+  	ganancia = 0
+  	ganancia = self.sale_price - self.purchase_price
+  	self.update_columns(gain: ganancia)
+  end
 
 end

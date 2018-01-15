@@ -28,6 +28,52 @@ ActiveAdmin.register Product do
   end
 
 
+  show  do
+
+    attributes_table  do
+
+      row "Descripcion",:name,:sortable => :name do |product|
+        div :class => "name" do
+            product.name
+        end
+      end 
+      row "Precio de compra",:purchase_price,:sortable => :purchase_price do |product|
+        div :class => "purchase_price" do
+            number_to_currency product.purchase_price
+        end
+      end
+      row "Precio de venta",:sale_price,:sortable => :sale_price do |product|
+        div :class => "sale_price" do
+            number_to_currency product.sale_price
+        end
+      end
+      row "Ganancia",:gain,:sortable => :gain do |product|
+        div :class => "gain" do
+            number_to_currency product.gain
+        end
+      end
+      row "Cantidad" ,:quantity,:sortable => :quantity do |product|
+        div :class => "quantity" do
+            product.quantity
+        end
+      end 
+      row "Cantidad minima",:minimun_quantity,:sortable => :minimun_quantity do |product|
+        div :class => "minimun_quantity" do
+            product.minimun_quantity
+        end
+      end 
+      row "Proveedor",:provider,:sortable => :provider do |product|
+        div :class => "provider" do
+            product.provider.name
+        end
+      end 
+      row :tipo
+      row :estado
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
 
  	form do |f|
  		f.inputs "Nuevo Producto" do
