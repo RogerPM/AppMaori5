@@ -4,6 +4,7 @@ ActiveAdmin.register User do
   menu parent: "Personas", label: 'Usuarios'
 
   index do
+    if can? :roles_usuario, @user
     selectable_column
     id_column
     column "Nombres",:name
@@ -15,6 +16,7 @@ ActiveAdmin.register User do
     column "Ultima conexión",:current_sign_in_at
     column "Creado el",:created_at
     actions
+    end
   end
 
   filter :email

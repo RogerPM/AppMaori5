@@ -1,6 +1,6 @@
-ActiveAdmin.register Sale do
+ ActiveAdmin.register Sale do
 
-permit_params :numero,:date,:client_id,:user_id,:subtotal,:iva,:total,:nota,sale_detail_attributes: [:id,:sale,:product_id,:precio,:quantity,:subtotal,:_destroy], sale_membership_attributes: [:id,:sale,:membership_id,:precio,:quantity,:subtotal,:_destroy]
+permit_params :numero,:date,:client_id,:user_id,:subtotal,:iva,:total,:nota,sale_detail_attributes: [:id,:sale,:product_id,:precio,:quantity,:subtotal,:_destroy], sale_membership_attributes: [:id,:sale,:membership_id,:client_id,:precio,:quantity,:subtotal,:_destroy]
 
 menu parent: "Punto de venta", label: 'Ventas'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105165028) do
+ActiveRecord::Schema.define(version: 20180116043613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,12 +153,14 @@ ActiveRecord::Schema.define(version: 20180105165028) do
     t.integer  "total_entries"
     t.integer  "current_entries"
     t.string   "estado"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "sale_membership_id"
   end
 
   add_index "subscriptions", ["client_id"], name: "index_subscriptions_on_client_id", using: :btree
   add_index "subscriptions", ["membership_id"], name: "index_subscriptions_on_membership_id", using: :btree
+  add_index "subscriptions", ["sale_membership_id"], name: "index_subscriptions_on_sale_membership_id", using: :btree
   add_index "subscriptions", ["service_id"], name: "index_subscriptions_on_service_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -200,5 +202,6 @@ ActiveRecord::Schema.define(version: 20180105165028) do
   add_foreign_key "sales", "users"
   add_foreign_key "subscriptions", "clients"
   add_foreign_key "subscriptions", "memberships"
+  add_foreign_key "subscriptions", "sale_memberships"
   add_foreign_key "subscriptions", "services"
 end

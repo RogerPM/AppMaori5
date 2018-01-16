@@ -38,6 +38,7 @@ class Sale < ActiveRecord::Base
   
   
   after_save :totales
+  after_save :creacion_subscripciones
   #after_save :mensaje_inventario
 
   
@@ -81,6 +82,29 @@ class Sale < ActiveRecord::Base
     self.update_columns(subtotal: subtotalfac , iva: ivafact , total: totalfact, user_id: :current_admin)
   end
 
+
+  def creacion_subscripciones
+    tnw = Time.now
+    tf = 0
+    if self.sale_membership.any?
+      self.sale_membership.each do |sale_membership|
+      if sale_membership.quantity < 2
+        subs = Subscription.new 
+          subs.client = sale_membership.client
+          subs.start_time = tnw + sale_membership.membership.sessions
+          subs.end_time = tnw + sale_membership.membership.sessions
+          subs.service = sale_membership.membership.service
+          subs.total_entries = sale_membership.membership.sessions
+          subs.current_entries = sale_membership.membership.sessions
+          subs.sale_membership = sale_membership
+          subs.membership = sale_membership.membership
+        subs.save
+       else 
+      end
+      end
+    else
+    end
+  end
 
 
   def mensaje_inventario
