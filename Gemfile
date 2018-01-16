@@ -52,3 +52,4 @@ gem 'country_select'
 gem 'activeadmin_selectize'
 gem 'activeadmin_addons'
 gem 'activeadmin_dynamic_fields'
+gem 'rails_12factor', group: :production
