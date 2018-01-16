@@ -89,7 +89,7 @@ menu parent: "Punto de venta", label: 'Ventas'
     end
 
     f.input :client
-    
+    f.input :user
 
 
     if f.object.new_record?

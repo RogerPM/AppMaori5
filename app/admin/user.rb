@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :name,:last_name,:identification_card,:address,:birthday,:phone,:contract_date,:contract_date_end,:position,:state,:email, :password, :password_confirmation
+  permit_params :id,:name,:last_name,:identification_card,:address,:birthday,:phone,:contract_date,:contract_date_end,:position,:state,:email, :password, :password_confirmation
 
   menu parent: "Personas", label: 'Usuarios'
 

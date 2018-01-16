@@ -31,8 +31,6 @@ class Sale < ActiveRecord::Base
   validates :numero, presence: true, uniqueness: true, length: {:minimum => 11}
   validates :client_id , presence: true
   validates :date , presence: true 
-
-  #cattr_accessor :current_user
   
   #before_save :validacionproducto
   
@@ -54,6 +52,7 @@ class Sale < ActiveRecord::Base
     subtotalfac=0.0
     ivafact=0.0
     totalfact=0.0
+   
     if self.sale_detail.any?
       self.sale_detail.each do |sale_detail|
         subtotalfac = subtotalfac + sale_detail.subtotal
@@ -79,20 +78,20 @@ class Sale < ActiveRecord::Base
         totalfact = subtotalfac + ivafact
       end      
     end
-    self.update_columns(subtotal: subtotalfac , iva: ivafact , total: totalfact, user_id: :current_admin)
+    self.update_columns(subtotal: subtotalfac , iva: ivafact , total: totalfact)
   end
 
 
   def creacion_subscripciones
     tnw = Time.now
-    tf = 0
+    
     if self.sale_membership.any?
       self.sale_membership.each do |sale_membership|
       if sale_membership.quantity < 2
         subs = Subscription.new 
           subs.client = sale_membership.client
           subs.start_time = tnw + sale_membership.membership.sessions
-          subs.end_time = tnw + sale_membership.membership.sessions
+          subs.end_time = tnw + (sale_membership.membership.sessions * 60 * 60 * 24)
           subs.service = sale_membership.membership.service
           subs.total_entries = sale_membership.membership.sessions
           subs.current_entries = sale_membership.membership.sessions
