@@ -109,7 +109,7 @@ menu parent: "Punto de venta", label: 'Ventas'
           f.has_many :sale_membership, heading: 'Detall Membresias',:allow_destroy => true,new_record: 'Agregar'  do |b|
             b.input :membership, :label => "Membresia"
             b.input :client, :label => "Cliente"
-            b.input :quantity, :min => 1
+            #b.input :quantity, :min => 1 
           end      
         end
 

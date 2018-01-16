@@ -36,7 +36,7 @@ class Sale < ActiveRecord::Base
   
   
   after_save :totales
-  after_save :creacion_subscripciones
+  after_create :creacion_subscripciones
   #after_save :mensaje_inventario
 
   
@@ -84,11 +84,21 @@ class Sale < ActiveRecord::Base
 
   def creacion_subscripciones
     tnw = Time.now
-    
     if self.sale_membership.any?
       self.sale_membership.each do |sale_membership|
-      if sale_membership.quantity < 2
         subs = Subscription.new 
+        if sale_membership.membership.tipo == "entrada"
+          subs.client = sale_membership.client
+          subs.start_time = tnw + sale_membership.membership.sessions
+          subs.end_time = tnw + ((sale_membership.membership.sessions * 3) * 60 * 60 * 24)
+          subs.service = sale_membership.membership.service
+          subs.total_entries = sale_membership.membership.sessions
+          subs.current_entries = sale_membership.membership.sessions
+          subs.sale_membership = sale_membership
+          subs.membership = sale_membership.membership
+          tnw = subs.end_time+(1*60*60*24)
+          subs.save
+        else
           subs.client = sale_membership.client
           subs.start_time = tnw + sale_membership.membership.sessions
           subs.end_time = tnw + (sale_membership.membership.sessions * 60 * 60 * 24)
@@ -97,10 +107,10 @@ class Sale < ActiveRecord::Base
           subs.current_entries = sale_membership.membership.sessions
           subs.sale_membership = sale_membership
           subs.membership = sale_membership.membership
-        subs.save
-       else 
-      end
-      end
+          tnw = subs.end_time+(1*60*60*24)
+          subs.save
+        end
+       end
     else
     end
   end

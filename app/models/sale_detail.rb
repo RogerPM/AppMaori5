@@ -16,10 +16,13 @@ class SaleDetail < ActiveRecord::Base
   belongs_to :sale
   belongs_to :product
 
-  
+  validates :product, presence: true
+  validates :quantity, presence: true
+
   after_save :update_detail
   after_save :subtotal_generado
   #before_save :validacionproducto
+
 
   def update_detail
     aux = 0
