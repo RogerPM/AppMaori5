@@ -72,7 +72,7 @@ test:
 #
 production:
   <<: *default
-  database: AppMaori_production
-  username: postgres
-  password: 123456
-  host: localhost>
+  database: dcldeask3ctihe
+  username: fhaxsadyjceaxn
+  password: 829143325705ab7017f239e9a6755fd4878ccbdc70723a52e891e7a40a796bac
+  host: ec2-23-21-246-25.compute-1.amazonaws.com
