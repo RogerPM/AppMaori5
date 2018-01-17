@@ -29,46 +29,70 @@ menu parent: "Punto de venta", label: 'Ventas'
   end
 
   show  do
-
-    attributes_table  do
-
-      row :date
-      row :numero
-      row :client
-      row :user
-      row :subtotal,:sortable => :subtotal do |sale|
-        div :class => "subtotal" do
-            number_to_currency sale.subtotal
+   columns do
+    column do
+      section "Factura" do
+         attributes_table  do
+        row :date
+        row :numero
+        row :client
+        row :user
+        row :subtotal,:sortable => :subtotal do |sale|
+          div :class => "subtotal" do
+              number_to_currency sale.subtotal
+          end
         end
-      end
-      row :iva,:sortable => :iva do |sale|
-        div :class => "iva" do
-            number_to_currency sale.iva
+        row :iva,:sortable => :iva do |sale|
+          div :class => "iva" do
+              number_to_currency sale.iva
+          end
         end
-      end
-      row :total,:sortable => :total do |sale|
-        div :class => "total" do
-            number_to_currency sale.total
+        row :total,:sortable => :total do |sale|
+          div :class => "total" do
+              number_to_currency sale.total
+          end
         end
-      end
-      row :total_efectivo,:sortable => :total_efectivo do |sale|
-        div :class => "total_efectivo" do
-            number_to_currency sale.total_efectivo
+        row :total_efectivo,:sortable => :total_efectivo do |sale|
+          div :class => "total_efectivo" do
+              number_to_currency sale.total_efectivo
+          end
         end
-      end
-      row :total_tarjeta,:sortable => :total_tarjeta do |sale|
-        div :class => "total_tarjeta" do
-            number_to_currency sale.total_tarjeta
+        row :total_tarjeta,:sortable => :total_tarjeta do |sale|
+          div :class => "total_tarjeta" do
+              number_to_currency sale.total_tarjeta
+          end
         end
-      end
-      row :total_cheque,:sortable => :total_cheque do |sale|
-        div :class => "total_cheque" do
-            number_to_currency sale.total_cheque
+        row :total_cheque,:sortable => :total_cheque do |sale|
+          div :class => "total_cheque" do
+              number_to_currency sale.total_cheque
+          end
         end
-      end
-      row :created_at
-      row :updated_at
+          if can? :roles_usuario, @user
+            row :created_at
+            row :updated_at
+          end
+        end  
+       end
     end
+      column do
+        panel "Productos" do
+          table_for sale.sale_detail do
+            column :product
+            column :quantity
+            column :precio
+            column :subtotal
+          end
+        end
+        panel "Membresias" do
+          table_for sale.sale_membership do
+            column :client
+            column :membership
+            column :precio
+            column :subtotal
+          end
+        end
+      end
+   end
     active_admin_comments
   end
 
