@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
 
   def cantidad_ganada
   	ganancia = 0
-  	ganancia = self.sale_price - self.purchase_price
+  	ganancia =  self.purchase_price - self.sale_price
   	self.update_columns(gain: ganancia)
   end
 
