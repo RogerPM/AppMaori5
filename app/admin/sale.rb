@@ -75,20 +75,24 @@ menu parent: "Punto de venta", label: 'Ventas'
        end
     end
       column do
-        panel "Productos" do
-          table_for sale.sale_detail do
-            column :product
-            column :quantity
-            column :precio
-            column :subtotal
-          end
+        if sale.sale_detail.any?
+         panel "Productos" do
+           table_for sale.sale_detail do
+             column :product
+             column :quantity
+             column :precio
+             column :subtotal
+           end
+         end
         end
-        panel "Membresias" do
-          table_for sale.sale_membership do
-            column :client
-            column :membership
-            column :precio
-            column :subtotal
+        if sale.sale_membership.any?
+          panel "Membresias" do
+            table_for sale.sale_membership do
+              column :client
+              column :membership
+              column :precio
+              column :subtotal
+            end
           end
         end
       end
