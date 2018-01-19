@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_id: 
+  id: MyString
+  email: MyString
+  phone: MyString
+  subscription_id: 
+  expiration_date: 2018-01-17
+  present: false
+
+two:
+  client_id: 
+  id: MyString
+  email: MyString
+  phone: MyString
+  subscription_id: 
+  expiration_date: 2018-01-17
+  present: false

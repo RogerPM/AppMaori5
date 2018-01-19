@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :class_registrations
   resources :sale_memberships
   resources :sale_details
   resources :sales

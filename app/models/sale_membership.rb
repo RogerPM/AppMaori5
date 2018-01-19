@@ -10,8 +10,6 @@ class SaleMembership < ActiveRecord::Base
   validates :client, presence: true
 
   def subtotal_membresia
-    var = 0
-    var = self.membership.total * self.quantity
-    self.update_columns(precio: self.membership.total , subtotal: var )   
+    self.update_columns(precio: self.membership.total , subtotal: var = self.membership.total )   
   end
 end

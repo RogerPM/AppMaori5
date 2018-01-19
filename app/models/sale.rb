@@ -90,13 +90,16 @@ class Sale < ActiveRecord::Base
         if sale_membership.membership.tipo == "entrada"
           subs.client = sale_membership.client
           subs.start_time = tnw + sale_membership.membership.sessions
+          subs.start_time
           subs.end_time = tnw + ((sale_membership.membership.sessions * 3) * 60 * 60 * 24)
+          subs.end_time
           subs.service = sale_membership.membership.service
           subs.total_entries = sale_membership.membership.sessions
           subs.current_entries = sale_membership.membership.sessions
           subs.sale_membership = sale_membership
           subs.membership = sale_membership.membership
           tnw = subs.end_time+(1*60*60*24)
+          subs.estado = "Activo"
           subs.save
         else
           subs.client = sale_membership.client
@@ -108,6 +111,7 @@ class Sale < ActiveRecord::Base
           subs.sale_membership = sale_membership
           subs.membership = sale_membership.membership
           tnw = subs.end_time+(1*60*60*24)
+          subs.estado = "Activo"
           subs.save
         end
        end

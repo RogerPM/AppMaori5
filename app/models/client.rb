@@ -20,6 +20,8 @@
 
 class Client < ActiveRecord::Base
 
+	has_many :subscription
+
 	validates :identification_card, presence: true,:length => { :minimum => 10 }
 	validates :name, presence: true
 	validates :last_name , presence: true

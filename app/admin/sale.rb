@@ -31,8 +31,8 @@ menu parent: "Punto de venta", label: 'Ventas'
   show  do
    columns do
     column do
-      section "Factura" do
-         attributes_table  do
+     panel "Factura" do
+         attributes_table do
         row :date
         row :numero
         row :client
@@ -70,8 +70,8 @@ menu parent: "Punto de venta", label: 'Ventas'
           if can? :roles_usuario, @user
             row :created_at
             row :updated_at
-          end
-        end  
+          end 
+        end 
        end
     end
       column do

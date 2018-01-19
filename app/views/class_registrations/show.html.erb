@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @class_registration.client %>
+</p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @class_registration.id %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @class_registration.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @class_registration.phone %>
+</p>
+
+<p>
+  <strong>Subscription:</strong>
+  <%= @class_registration.subscription %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @class_registration.expiration_date %>
+</p>
+
+<p>
+  <strong>Present:</strong>
+  <%= @class_registration.present %>
+</p>
+
+<%= link_to 'Edit', edit_class_registration_path(@class_registration) %> |
+<%= link_to 'Back', class_registrations_path %>

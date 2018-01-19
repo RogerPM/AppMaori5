@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Class Registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Id</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Subscription</th>
+      <th>Expiration date</th>
+      <th>Present</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_registrations.each do |class_registration| %>
+      <tr>
+        <td><%= class_registration.client %></td>
+        <td><%= class_registration.id %></td>
+        <td><%= class_registration.email %></td>
+        <td><%= class_registration.phone %></td>
+        <td><%= class_registration.subscription %></td>
+        <td><%= class_registration.expiration_date %></td>
+        <td><%= class_registration.present %></td>
+        <td><%= link_to 'Show', class_registration %></td>
+        <td><%= link_to 'Edit', edit_class_registration_path(class_registration) %></td>
+        <td><%= link_to 'Destroy', class_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class registration', new_class_registration_path %>

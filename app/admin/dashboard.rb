@@ -24,18 +24,21 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
-    section "Productos Recientes" do
-    table_for Product.order("updated_at desc").limit(5) do
-      column "Descripcion", :name do |product|
-        link_to product.name, admin_product_path(product)
+    columns do
+      column do
+        panel "Productos Recientes" do
+          table_for Product.order("updated_at desc").limit(5) do
+            column "Descripcion", :name do |product|
+              link_to product.name, admin_product_path(product)
+            end
+            column "Actual", :quantity
+            column " Minimo", :minimun_quantity
+            column "Ultimos vendidos", :updated_at
+          end
+          strong { link_to "View All Products", admin_products_path }
+        end
       end
-      column "Stock Actual", :quantity
-      column "Stock Minimo", :minimun_quantity
-      column "Ultimos vendidos", :updated_at
     end
-    strong { link_to "View All Products", admin_products_path }
-  end
-
 
   end # content
 end
