@@ -8,16 +8,33 @@ class ClassRegistration < ActiveRecord::Base
   before_create :registro_clases
 
   def registro_clases
-  	t1= Time.now.strftime("%d%m%Y")
-  	aux = 0
+  	t1= Time.now.strftime("%Y-%m-%d")
+  
   	self.client.subscription.each do |subscription|
   		if subscription.estado == "Activo"
-
+  			self.client = self.client
   			self.id_client = self.client.identification_card
   			self.email = self.client.email
   			self.phone = self.client.phone
   			self.subscription = subscription
   			self.expiration_date = subscription.end_time
+  			self.present = true
+  			if subscription.membership.tipo == "entrada"
+  				subscription.current_entries = subscription.current_entries+1
+  				
+  				if  subscription.current_entries >= subscription.total_entries
+
+  					subscription.estado = "Inactivo"
+  					
+  				end
+
+  			else
+  				subscription.current_entries = subscription.current_entries + 1
+  			end
+  			if subscription.end_time.strftime("%Y-%m-%d") <= t1
+  				subscription.estado = "Inactivo"
+  			end
+  			subscription.save
   			#t1 = subscription.end_time.strftime("%d%m%Y")
   			#aux = t1
   			#if aux > 0
@@ -29,7 +46,6 @@ class ClassRegistration < ActiveRecord::Base
   			
   			#self.update_columns(id_client: self.client.identification_card , email: self.client.email, phone: self.client.phone,expiration_date: subscription.end_time)
   		end
-  	
   	end
   end
 

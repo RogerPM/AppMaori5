@@ -27,6 +27,7 @@ index do
     	"#{membership.quantity_date.to_s} #{membership.type_duration}" 
     end	
     column "Tipo", :tipo
+    column :days
     actions
 end
 

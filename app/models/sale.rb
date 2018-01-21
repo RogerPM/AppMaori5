@@ -88,9 +88,10 @@ class Sale < ActiveRecord::Base
         subs = Subscription.new 
           subs.client = sale_membership.client
           subs.start_time = self.created_at.strftime("%Y-%m-%d")
-          subs.end_time = subs.start_time + sale_membership.membership.days
+          subs.end_time =subs.start_time + sale_membership.membership.days
           subs.service = sale_membership.membership.service
           subs.total_entries = sale_membership.membership.sessions
+          subs.current_entries = 0
           subs.sale_membership = sale_membership
           subs.membership = sale_membership.membership
           subs.estado = "Activo"
