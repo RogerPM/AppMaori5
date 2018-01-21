@@ -83,37 +83,18 @@ class Sale < ActiveRecord::Base
 
 
   def creacion_subscripciones
-    tnw = Time.now
     if self.sale_membership.any?
       self.sale_membership.each do |sale_membership|
         subs = Subscription.new 
-        if sale_membership.membership.tipo == "entrada"
           subs.client = sale_membership.client
-          subs.start_time = tnw + sale_membership.membership.sessions
-          subs.start_time
-          subs.end_time = tnw + ((sale_membership.membership.sessions * 3) * 60 * 60 * 24)
-          subs.end_time
+          subs.start_time = self.created_at.strftime("%Y-%m-%d")
+          subs.end_time = subs.start_time + sale_membership.membership.days
           subs.service = sale_membership.membership.service
           subs.total_entries = sale_membership.membership.sessions
-          subs.current_entries = sale_membership.membership.sessions
           subs.sale_membership = sale_membership
           subs.membership = sale_membership.membership
-          tnw = subs.end_time+(1*60*60*24)
           subs.estado = "Activo"
           subs.save
-        else
-          subs.client = sale_membership.client
-          subs.start_time = tnw + sale_membership.membership.sessions
-          subs.end_time = tnw + (sale_membership.membership.sessions * 60 * 60 * 24)
-          subs.service = sale_membership.membership.service
-          subs.total_entries = sale_membership.membership.sessions
-          subs.current_entries = sale_membership.membership.sessions
-          subs.sale_membership = sale_membership
-          subs.membership = sale_membership.membership
-          tnw = subs.end_time+(1*60*60*24)
-          subs.estado = "Activo"
-          subs.save
-        end
        end
     else
     end

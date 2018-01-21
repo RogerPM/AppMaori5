@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118045703) do
+ActiveRecord::Schema.define(version: 20180120231141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,8 +73,11 @@ ActiveRecord::Schema.define(version: 20180118045703) do
     t.decimal  "total"
     t.string   "tipo"
     t.boolean  "estado"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "days"
+    t.string   "type_duration"
+    t.integer  "quantity_date"
   end
 
   add_index "memberships", ["service_id"], name: "index_memberships_on_service_id", using: :btree

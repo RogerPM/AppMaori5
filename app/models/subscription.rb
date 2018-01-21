@@ -22,5 +22,18 @@ class Subscription < ActiveRecord::Base
   belongs_to :membership
   belongs_to :sale_membership
 
+ def actualizacion_subscripciones
+	 Subscription.all.each do |subscription|
+  	 if subscription.estado == "Activo"
+  		if subscription.membership.tipo == "diario"
+  		   subscription.current_entries = subscription.current_entries - 1
+  			if subscription.current_entries == 0
+  				subscription.estado = "Inactivo"
+  			end
+  			subscription.save
+  		end	
+  	  end
+  	end
+  end
 
 end
